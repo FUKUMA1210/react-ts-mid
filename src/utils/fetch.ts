@@ -21,7 +21,7 @@ export async function asyncPost(api: string, body: {} | FormData) {
         method: 'POST',
         credentials: 'include',
         headers:new Headers({
-            'Access-Control-Allow-Origin':"http://localhost:5173/",
+            'Access-Control-Allow-Origin':"http://localhost:7777/",
             'content-Type':"application/json"
         }),
         body: body instanceof FormData?body:JSON.stringify(body),
@@ -39,7 +39,7 @@ export async function asyncPatch(api: string, body: {} | FormData) {
     const res: Response = await fetch(api, {
         method: 'PATCH',
         headers:new Headers({
-            'Access-Control-Allow-Origin':"http://localhost:5173/",
+            'Access-Control-Allow-Origin':"http://localhost:7777/",
         }),
         body: body instanceof FormData?body:JSON.stringify(body),
         mode:"cors"
@@ -51,3 +51,34 @@ export async function asyncPatch(api: string, body: {} | FormData) {
         console.error(error)
     }
 }
+
+export const asyncPut = async (url: string, body: any) => {
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+  
+      return await response.json();
+    } catch (error) {
+      console.error("PUT request error:", error);
+      return { code: 500, message: "Server error" };
+    }
+  };
+  
+  export const asyncDelete = async (url: string) => {
+    try {
+      const response = await fetch(url, {
+        method: "DELETE",
+      });
+  
+      return await response.json();
+    } catch (error) {
+      console.error("DELETE request error:", error);
+      return { code: 500, message: "Server error" };
+    }
+  };
+  

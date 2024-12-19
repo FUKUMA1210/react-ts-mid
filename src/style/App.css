@@ -1,28 +1,105 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  color: #212121;
-}
-
+/* 主要內容區域 */
 .container {
+  flex: 1;
+  margin-left: 270px; /* 避開 Sidebar */
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 20px;
+  justify-content: center;
+  background-color: #f8f9fa;
 }
 
+/* 學生卡片美化 */
 .container .student {
-  border: solid 1px #212121;
-  border-radius: .3rem;
-  width: 15rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1% 2%;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 220px; /* 每個卡片固定寬度 */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.container .student:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
 
-.container .student h1 {
-  font-size: 1.25rem;
+.container .student p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.container .student .edit-btn {
+  color: #00adb5;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.container .student .edit-btn:hover {
+  color: #007e84;
+}
+
+/* 學生表單樣式 */
+.student-form {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.student-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.student-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.student-form input:focus {
+  border-color: #00adb5;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 173, 181, 0.5);
+}
+
+/* 按鈕區域 */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button.confirm {
+  background-color: #00adb5;
+  color: white;
+}
+
+.button.confirm:hover {
+  background-color: #007e84;
+}
+
+.button.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.button.cancel:hover {
+  background-color: #e53935;
 }
